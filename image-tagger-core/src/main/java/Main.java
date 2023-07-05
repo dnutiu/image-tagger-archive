@@ -3,7 +3,7 @@ import dev.nuculabs.keyworder.core.ModelInference;
 import dev.nuculabs.keyworder.core.Prediction;
 
 public class Main {
-    static String modelPath = "C:\\Users\\nutiu\\Downloads\\resnet34_10_epochs.onnx";
+    static String modelPath = "C:\\Users\\nutiu\\Downloads\\resnet50_10_epochs.onnx";
     static String imagePath = "C:\\Users\\nutiu\\Downloads\\9.jpg";
 
     public static void main(String[] args) throws OrtException {
