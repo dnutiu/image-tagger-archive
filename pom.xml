@@ -3,10 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>image-tagger</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    
     <name>image-tagger</name>
     <groupId>deb.nuculabs.keyworder</groupId>
+    <artifactId>image-tagger</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <packaging>pom</packaging>
     <description>Image tagger application that predicts an image's keywords using deep-learning. Useful for
         photographers who want to improve their workflow by auto-tagging images.
@@ -14,6 +16,15 @@
 
     <modules>
         <module>image-tagger-core</module>
+        <module>image-tagger-gui</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime_gpu</artifactId>
+            <version>1.15.1</version>
+        </dependency>
+    </dependencies>
 
 </project>
