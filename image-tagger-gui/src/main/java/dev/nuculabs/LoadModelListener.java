@@ -15,8 +15,7 @@ public class LoadModelListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         fileChooser.showOpenDialog(null);
-        String modelPath = fileChooser.getSelectedFile().getAbsolutePath();
-        ChoseImageListener.modelPath = modelPath;
+        ChoseImageListener.modelPath = fileChooser.getSelectedFile().getAbsolutePath();
         this.choseImageButton.setEnabled(true);
     }
 }
