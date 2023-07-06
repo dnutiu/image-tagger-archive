@@ -2,50 +2,66 @@ package dev.nuculabs;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        //Creating the Frame
-        JFrame frame = new JFrame("Image Tagger");
+class ImageTaggerGUI {
+
+    private JFrame frame;
+    private JTextArea textArea;
+    private JButton chooseImageButton;
+    private JButton loadModelButton;
+    private JLabel imageLabel;
+
+    public ImageTaggerGUI() {
+        initialize();
+    }
+
+    private void initialize() {
+        // Creating the Frame
+        frame = new JFrame("Image Tagger");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(640, 400);
 
-        //Creating the panel at bottom and adding components
-        JTextArea textArea = new JTextArea("The predicted tags for the image will be shown here...");
+        // Creating the panel at bottom and adding components
+        JPanel bottomPanel = new JPanel();
+        chooseImageButton = new JButton("Choose Image");
+        loadModelButton = new JButton("Load Model");
+        chooseImageButton.setEnabled(false);
+
+        bottomPanel.add(loadModelButton);
+        bottomPanel.add(chooseImageButton);
+
+        // Creating the center panel and adding components
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        textArea = new JTextArea("The predicted tags for the image will be shown here...");
         textArea.setEditable(false);
         textArea.setColumns(20);
         textArea.setLineWrap(true);
         textArea.setFont(new Font("Serif", Font.BOLD, 24));
 
-        JPanel panel = new JPanel();
-        JButton choseImageButton = new JButton("Choose Image");
-        JButton loadModelButton = new JButton("Load Model");
-        choseImageButton.setEnabled(false);
+        imageLabel = new JLabel();
+        imageLabel.setPreferredSize(new Dimension(224, 224));
 
-        panel.add(loadModelButton);
-        panel.add(choseImageButton);
-
-
-        JPanel centerPanel = new JPanel();
-        JLabel imageLabel = new JLabel();
-        var centerPanelBorderLayout = new BorderLayout();
-        centerPanelBorderLayout.setHgap(10);
-        centerPanelBorderLayout.setVgap(20);
-
-        centerPanel.setLayout(centerPanelBorderLayout);
-        centerPanel.add(imageLabel, BorderLayout.EAST);
         centerPanel.add(textArea, BorderLayout.WEST);
-
-        imageLabel.setSize(224, 224);
+        centerPanel.add(imageLabel, BorderLayout.EAST);
 
         // Adding listeners
-        choseImageButton.addActionListener(new ChoseImageListener(imageLabel, textArea));
-        loadModelButton.addActionListener(new LoadModelListener(choseImageButton));
+        chooseImageButton.addActionListener(new ChoseImageListener(imageLabel, textArea));
 
-        //Adding Components to the frame.
-        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.CENTER, centerPanel);
+        loadModelButton.addActionListener(new LoadModelListener(chooseImageButton));
+
+        // Adding components to the frame
+        frame.add(bottomPanel, BorderLayout.SOUTH);
+        frame.add(centerPanel, BorderLayout.CENTER);
+
+        // Make the frame visible
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new ImageTaggerGUI();
+            }
+        });
     }
 }
