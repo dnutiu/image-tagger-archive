@@ -20,10 +20,14 @@ public class MainPageController {
     private Label predictedImageTags;
 
     @FXML
-    protected void onHelloButtonClick() {
+    protected void onLoadImageButtonClick() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
+
+        if (file == null) {
+            return;
+        }
 
         var predictions = modelPrediction.predictKeywordsForImage(file.getAbsolutePath());
         var predictionsSb = new StringBuilder();

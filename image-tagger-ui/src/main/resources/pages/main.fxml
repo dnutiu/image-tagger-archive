@@ -12,5 +12,5 @@
   </padding>
 
   <Label fx:id="predictedImageTags"/>
-  <Button text="Load Image" onAction="#onHelloButtonClick"/>
+  <Button text="Load Image" onAction="#onLoadImageButtonClick"/>
 </VBox>
