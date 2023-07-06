@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="image-tagger-ui" />
-        <module name="image-tagger-gui" />
         <module name="image-tagger-core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="image-tagger-gui" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
