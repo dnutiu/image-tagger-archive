@@ -5,9 +5,12 @@ import ai.onnxruntime.OrtEnvironment;
 import ai.onnxruntime.OrtException;
 import ai.onnxruntime.OrtSession;
 
+import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Class that handles the inference of the model
@@ -27,18 +30,19 @@ public class ModelInference {
 
     /**
      * Constructor
-     * @param modelPath - path to the model
      */
-    public ModelInference(String modelPath) {
-        // TODO: Deprecate this, load model from memory.
+    public ModelInference() {
         try {
+            var modelStream = ModelInference.class.getResourceAsStream("/model/resnet50.onnx");
+            Objects.requireNonNull(modelStream);
+
             environment = OrtEnvironment.getEnvironment();
             var sessionOptions = new OrtSession.SessionOptions();
-            session = environment.createSession(modelPath, sessionOptions);
+            session = environment.createSession(modelStream.readAllBytes(), sessionOptions);
 
             inputName = session.getInputNames().iterator().next();
             outputName = session.getOutputNames().iterator().next();
-        } catch (OrtException e) {
+        } catch (OrtException | IOException e) {
             throw new RuntimeException(e);
         }
     }
