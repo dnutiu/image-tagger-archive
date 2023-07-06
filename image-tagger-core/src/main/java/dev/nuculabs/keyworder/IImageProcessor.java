@@ -1,4 +1,4 @@
-package dev.nuculabs.keyworder.core;
+package dev.nuculabs.keyworder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

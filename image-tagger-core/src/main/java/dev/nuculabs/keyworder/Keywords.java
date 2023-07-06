@@ -1,4 +1,4 @@
-package dev.nuculabs.keyworder.core;
+package dev.nuculabs.keyworder;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package dev.nuculabs.keyworder.core;
+package dev.nuculabs.keyworder;
 
 import ai.onnxruntime.OnnxTensor;
 import ai.onnxruntime.OrtEnvironment;
@@ -6,7 +6,6 @@ import ai.onnxruntime.OrtException;
 import ai.onnxruntime.OrtSession;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

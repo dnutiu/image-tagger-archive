@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <name>image-tagger</name>
-    <groupId>deb.nuculabs.keyworder</groupId>
+    <groupId>dev.nuculabs.keyworder</groupId>
     <artifactId>image-tagger</artifactId>
     <version>1.0-SNAPSHOT</version>
 
