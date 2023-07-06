@@ -30,6 +30,7 @@ public class ModelInference {
      * @param modelPath - path to the model
      */
     public ModelInference(String modelPath) {
+        // TODO: Deprecate this, load model from memory.
         try {
             environment = OrtEnvironment.getEnvironment();
             var sessionOptions = new OrtSession.SessionOptions();
