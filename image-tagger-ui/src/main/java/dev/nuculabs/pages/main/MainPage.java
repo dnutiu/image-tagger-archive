@@ -1,6 +1,5 @@
 package dev.nuculabs.pages.main;
 
-import dev.nuculabs.ImageTaggerApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,7 +8,7 @@ import javafx.stage.Stage;
 public class MainPage extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(ImageTaggerApplication.class.getResource("/pages/main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainPage.class.getResource("/pages/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 640);
         stage.setTitle("Image Tagger Utility");
         stage.setScene(scene);
