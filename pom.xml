@@ -17,6 +17,7 @@
     <modules>
         <module>image-tagger-core</module>
         <module>image-tagger-gui</module>
+        <module>image-tagger-ui</module>
     </modules>
 
     <dependencies>
