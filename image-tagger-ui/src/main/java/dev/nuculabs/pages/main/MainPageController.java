@@ -2,6 +2,7 @@ package dev.nuculabs.pages.main;
 import dev.nuculabs.controls.ImagePredictionEntry;
 import dev.nuculabs.services.ModelPrediction;
 import javafx.application.Platform;
+import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -17,6 +18,9 @@ public class MainPageController {
     @FXML
     private VBox verticalBox;
 
+    @FXML
+    private Label statusLabel;
+
     public MainPageController() {
         logger.info("MainPageController created");
     }
@@ -30,13 +34,14 @@ public class MainPageController {
             return;
         }
 
+        statusLabel.setVisible(true);
+
         // Create a new thread to predict the images.
         var thread = new Thread(() -> {
             try {
                 for (var file : files) {
                     // Get predictions for the image.
                     var predictions = modelPrediction.predictKeywordsForImage(file.getAbsolutePath());
-
                     Platform.runLater(() -> {
                         // Add image and prediction to the view.
                         var children = verticalBox.getChildren();
@@ -44,6 +49,9 @@ public class MainPageController {
                         children.add(new Separator());
                     });
                 }
+                Platform.runLater(() -> {
+                    statusLabel.setVisible(false);
+                });
             } catch (Exception e) {
                 logger.error("Error while predicting images", e);
             }

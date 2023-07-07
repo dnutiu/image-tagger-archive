@@ -56,9 +56,12 @@ public class ImagePredictionEntry extends HBox {
      */
     public void setText(List<Prediction> predictions) {
         var predictionsSb = new StringBuilder();
-        for (var prediction : predictions) {
+        for (var i = 0; i < predictions.size(); i++) {
+            var prediction = predictions.get(i);
             predictionsSb.append(prediction.label());
-            predictionsSb.append(", ");
+            if (i != predictions.size() - 1) {
+                predictionsSb.append(", ");
+            }
         }
         predictedImageTags.setText(predictionsSb.toString());
     }
