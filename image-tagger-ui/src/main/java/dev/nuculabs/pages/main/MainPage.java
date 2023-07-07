@@ -14,6 +14,7 @@ public class MainPage extends Application {
         stage.setScene(scene);
         stage.setMinHeight(640);
         stage.setMinWidth(640);
+        stage.setResizable(false);
         stage.show();
     }
 }
