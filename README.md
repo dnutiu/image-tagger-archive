@@ -15,7 +15,7 @@ I've implemented the graphical user interface in ~2 hours while having minimal e
 To use this tool follow these steps:
 
 1. Download JRE 20.2 or higher from [here](https://www.oracle.com/java/technologies/downloads/#java20) or [here](https://docs.aws.amazon.com/corretto/latest/corretto-20-ug/downloads-list.html).
-2. Download the program JAR file and model from GitHub, [here](https://github.com/dnutiu/image-tagger/releases/tag/v2.0.0).
+2. Download the program JAR file from GitHub, [here](https://github.com/dnutiu/image-tagger/releases/tag/v2.0.0).
 3. Run the program JAR file using the following command (you will need to open the command line): `java -jar ImageTagger.jar`
 4. Click "Tag Images" and select the images you want to tag.
 5. Wait for the prediction to finish.
