@@ -30,7 +30,7 @@ public class MainPageController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Chose images");
         var files = fileChooser.showOpenMultipleDialog(null);
-        if (files.isEmpty()) {
+        if (files == null) {
             return;
         }
 
