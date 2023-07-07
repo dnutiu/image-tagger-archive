@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import javafx.fxml.FXML;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class MainPageController {
     private static final Logger logger = LoggerFactory.getLogger(MainPageController.class);
     private final ModelPrediction modelPrediction = ModelPrediction.getInstance();
@@ -28,7 +30,7 @@ public class MainPageController {
     @FXML
     protected void onLoadImageButtonClick() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Chose images");
+        fileChooser.setTitle("Choose images");
         var files = fileChooser.showOpenMultipleDialog(null);
         if (files == null) {
             return;
