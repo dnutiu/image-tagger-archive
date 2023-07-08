@@ -1,0 +1,5 @@
+dev\nuculabs\keyworder\Prediction.class
+dev\nuculabs\keyworder\ImageProcessor.class
+dev\nuculabs\keyworder\ModelInference.class
+dev\nuculabs\keyworder\Keywords.class
+dev\nuculabs\keyworder\IImageProcessor.class
